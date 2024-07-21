@@ -1,0 +1,14 @@
+- name: removing nginx from droplets
+  hosts: droplets
+
+  tasks:
+    - name: Nginx Duruduruluyor
+      service:
+        name: nginx
+        state: stopped
+        enabled: no
+
+    - name: Nginx kaldiriliyor
+      apt: 
+        name: nginx
+        state: absent

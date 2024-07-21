@@ -1,0 +1,29 @@
+- name: Ngnix uninstall edilmesi
+  hosts: droplets, aws
+  become: yes
+
+  tasks:
+    - name: Stop Ngnix
+      service:
+        name: nginx    
+        state: stopped
+        enabled: no
+
+    - name: Removing Ngnix
+      apt:
+        name: nginx
+        state: absent
+        update_cache: yes
+      when: ansible_os_family == "Debian"  
+
+    - name: Removing Ngnix
+      yum:
+        name: nginx
+        state: absent
+      when: ansible_os_family == "RedHat"  
+      register: yum_result
+    
+    - name: debug yum
+      debug:
+        var: yum_result
+

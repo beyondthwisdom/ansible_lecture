@@ -1,0 +1,15 @@
+- name: Ngnix kurulumu ve calistirilmasi
+  hosts: droplets
+
+  tasks:
+    - name: Install Ngnix
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+        
+    - name: Start Ngnix
+      service:
+        name: nginx    
+        state: started
+        enabled: yes
