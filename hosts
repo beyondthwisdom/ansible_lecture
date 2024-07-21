@@ -1,0 +1,16 @@
+[droplets]
+165.22.237.169 
+165.22.237.158
+
+[database]
+143.198.48.131
+
+[droplets:vars]
+ansible_user=root 
+ansible_ssh_private_key_file=~/.ssh/id_rsa 
+ansible_python_interpreter=/usr/bin/python3.12
+
+[database:vars]
+ansible_user=root 
+ansible_ssh_private_key_file=~/.ssh/id_rsa 
+ansible_python_interpreter=/usr/bin/python3.12
